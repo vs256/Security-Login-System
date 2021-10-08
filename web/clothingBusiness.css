@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.background {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(./images/leftSideBack_2.jpg),
+    url(./images/rightSideBack_2.jpg);
+  background-repeat: no-repeat;
+  background-position: top left, top right;
+  background-size: 50%;
+}
+
+.thread {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 10px;
+  left: calc(50% - 30px);
+}
+
+.inputBox {
+  width: 320px;
+  height: 420px;
+  background-image: linear-gradient(gray, black);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  align-content: center;
+  border-radius: 5%;
+  padding: 70px 30px;
+  opacity: 90%;
+}
+
+.inputBox h1 {
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin: 0;
+  color: white;
+}
+
+.inputBox a {
+  color: white;
+  line-height: 20px;
+  font-size: 12px;
+  text-decoration: none;
+}
+.inputBox a:hover {
+  cursor: pointer;
+  color: grey;
+}
+
+.inputBox p {
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.inputBox input {
+  width: 100%;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.inputBox input[type="text"],
+input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  font-size: 15px;
+}
+.inputBox input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  font-size: 18px;
+  color: black;
+  border-radius: 20px;
+}
+.inputBox input[type="submit"]:hover {
+  cursor: pointer;
+  background: gray;
+  color: white;
+}
+
+.forgot {
+  font-size: 10px;
+  padding-left: 30%;
+}
+
+.forgotBox {
+  width: 320px;
+  height: 400px;
+  background-image: linear-gradient(gray, black);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  align-content: center;
+  border-radius: 5%;
+  padding: 70px 30px;
+  opacity: 90%;
+}
+
+.forgotBox h1 {
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin: 3px;
+  color: white;
+}
+
+.forgotBox a {
+  color: white;
+  line-height: 20px;
+  font-size: 12px;
+  text-decoration: none;
+}
+.forgotBox a:hover {
+  cursor: pointer;
+  color: grey;
+}
+
+.forgotBox p {
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.forgotBox input {
+  width: 100%;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.forgotBox input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  font-size: 13px;
+}
+.forgotBox input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  font-size: 18px;
+  color: black;
+  border-radius: 20px;
+}
+.forgotBox input[type="submit"]:hover {
+  cursor: pointer;
+  background: gray;
+  color: white;
+}
+
+.createBox {
+  width: 320px;
+  height: 490px;
+  background-image: linear-gradient(gray, black);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  align-content: center;
+  border-radius: 5%;
+  padding: 70px 30px;
+  opacity: 90%;
+}
+
+.createBox h1 {
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin: 3px;
+  color: white;
+}
+
+.createBox a {
+  color: white;
+  line-height: 20px;
+  font-size: 12px;
+  text-decoration: none;
+}
+.createBox a:hover {
+  cursor: pointer;
+  color: grey;
+}
+
+.createBox p {
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.createBox input {
+  width: 100%;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.createBox input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  font-size: 13px;
+}
+.createBox input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  font-size: 18px;
+  color: black;
+  border-radius: 20px;
+}
+.createBox input[type="submit"]:hover {
+  cursor: pointer;
+  background: gray;
+  color: white;
+}
