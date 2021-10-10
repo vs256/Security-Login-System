@@ -34,9 +34,10 @@ sudo apt install php libapache2-mod-php php-mysql #installs PHP
 Y
 sudo systemctl restart apache2 #restart server to save changes
 
-sudo chown -R $USER /var/www #add permissions
+sudo chown -R $USER /var/www #add permissions to /var/www/
 
-cd /var/www/html
-git clone https://github.com/vs256/Security-Design-Website.git
-sudo mv /var/www/html/Security-Design-Website/web/* /var/www/html
+
+cd /var/www/html #this is where the website files have to be to run it
+git clone https://github.com/vs256/Security-Design-Website.git #clone our git
+sudo mv /var/www/html/Security-Design-Website/web/* /var/www/html #move all the files of our website in our git repo to /var/www/html
 
