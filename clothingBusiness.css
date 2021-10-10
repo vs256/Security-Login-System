@@ -174,15 +174,15 @@ input[type="password"] {
 
 .createBox {
   width: 320px;
-  height: 490px;
+  height: 750px;
   background-image: linear-gradient(gray, black);
-  top: 50%;
+  top: 45%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
   align-content: center;
-  border-radius: 5%;
+  border-radius: 3%;
   padding: 70px 30px;
   opacity: 90%;
 }
