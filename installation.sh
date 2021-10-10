@@ -1,4 +1,4 @@
-
+#ubuntu 18.04
 sudo apt update #Updating the cache
 Y
 sudo apt full-upgrade #Updating the cache
