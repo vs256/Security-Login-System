@@ -1,39 +1,42 @@
-# install apache
-sudo su
-sudo yum update -y
-sudo yum install -y httpd httpd-tools mod_ssl
-sudo systemctl enable httpd 
-sudo systemctl start httpd
 
-# install php 7.4
-sudo amazon-linux-extras enable php7.4
-sudo yum clean metadata
-sudo yum install php php-common php-pear -y
-sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip}
+sudo apt update #Updating the cache
+Y
+sudo apt full-upgrade #Updating the cache
+Y
 
 
-# install mysql5.7
-sudo rpm -Uvh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
-sudo yum install mysql-community-server -y
-sudo systemctl enable mysqld
-sudo systemctl start mysqld
+sudo apt install apache2  #Install apache2
+Y
 
+sudo apt install ufw #Install UFW - firewall
+sudo ufw allow OpenSSH #Allow OpenSSH to be able to SSH to port 22
+sudo ufw allow "Apache Full" #Allow Apache Full http traffic access to ports 80 & 443
+sudo ufw enable #enable UFW
 
-# set permissions
-sudo usermod -a -G apache ec2-user
-sudo chown -R ec2-user:apache /var/www
-sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
-sudo find /var/www -type f -exec sudo chmod 0664 {} \;
+sudo apt install mysql-server #install mysql server
+Y
+sudo mysql_secure_installation #secure mysql connection
+no #decline to use validate password plugin
+compsecurity #password
+compsecurity #confirm password
+y #yes to removing anonymous users 
+y #yes to disallow root login remotely
+y #remove test database and access to it
+y #reload privilege tables
+systemctl status mysql.service #start mysql incase it is not running
 
+sudo mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'compsecurity';  #change root password
+FLUSH PRIVILEGES; #reload the grant tables and put changes into effect
+exit
 
-#move files from s3 to ec2
-sudo aws s3 sync s3://security-website-424 /var/www/html
+sudo apt install php libapache2-mod-php php-mysql #installs PHP
+Y
+sudo systemctl restart apache2 #restart server to save changes
+
+sudo chown -R $USER /var/www #add permissions
+
 cd /var/www/html
-sudo unzip web-424.zip
-sudo mv web-424/* /var/www/html
-sudo rm -rf web-424 web-424.zip __MACOSX
+git clone https://github.com/vs256/Security-Design-Website.git
+sudo mv /var/www/html/Security-Design-Website/web/* /var/www/html
 
-
-# enable mod_rewrite on ec2 linux
-sudo sed -i '/<Directory "\/var\/www\/html">/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/httpd/conf/httpd.conf
-sudo service httpd restart
