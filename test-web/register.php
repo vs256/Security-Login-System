@@ -3,7 +3,7 @@
 
     
     if(isset($_POST['submit'])){
-        $con = new mysqli(host: 'localhost', username: 'root', password: '', dbname: 'passwordHashing');
+        $con = new mysqli('localhost', 'root', 'compsecurity', 'passwordHashing');
 
         $name = $con->real_escape_string($_POST['name']);
         $email = $con->real_escape_string($_POST['email']);
@@ -13,7 +13,7 @@
 
         if ($password != $cPassword)
         {
-            $msg = echo "Please Check Your Passwords!";
+            $msg = "Please Check Your Passwords!";
         }
         else
         {
