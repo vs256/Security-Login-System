@@ -16,8 +16,8 @@
         }
         else
         {
-            //$hash = password_hash($password, PASSWORD_BCRYPT);
-            $con->query(query: "INSERT INTO users(name,email,password) VALUES ('$name','$email','$password')");
+            $hash = password_hash($password, PASSWORD_BCRYPT);
+            //$con->query(query: "INSERT INTO users(name,email,password) VALUES ('$name','$email','$password')");
             $msg = "You have been registered!";
 
         }
