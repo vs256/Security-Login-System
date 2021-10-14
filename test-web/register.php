@@ -3,7 +3,7 @@
 
     
     if(isset($_POST['submit'])){
-        $con = new mysqli('localhost', 'root', 'compsecurity', 'passwordHashing');
+        $con = new mysqli('localhost', 'root', '', 'passwordHashing');
 
         $name = $con->real_escape_string($_POST['name']);
         $email = $con->real_escape_string($_POST['email']);
