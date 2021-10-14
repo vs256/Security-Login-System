@@ -1,4 +1,29 @@
+<?php
+    $msg = "";
 
+    
+    if(isset($_POST['submit'])){
+        $con = new mysqli(host: 'localhost', username: 'root', password: 'compsecurity', dbname: 'passwordHashing');
+
+        $name = $con->real_escape_string($_POST['name']);
+        $email = $con->real_escape_string($_POST['email']);
+        $password = $con->real_escape_string($_POST['password']);
+        $cPassword = $con->real_escape_string($_POST['cPassword']);
+        
+
+        if ($password != $cPassword)
+        {
+            $msg = echo "Please Check Your Passwords!";
+        }
+        else
+        {
+            $hash = password_hash($password, algo: PASSWORD_BCRYPT);
+            $con->query(query: "INSERT INTO users (name, email, password) VALUES ('$name','$email','$hash')");
+            $msg = "You have been registered!";
+
+        }
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
