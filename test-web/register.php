@@ -2,7 +2,7 @@
     $msg = "";
 
     if(isset($_POST['submit'])){
-        $con = new mysqli('ec2-18-118-131-190.us-east-2.compute.amazonaws.com', 'root', 'computersecurity', 'passwordHashing');
+        $con = new mysqli('localhost', 'root', '');
 
         $name = $con->real_escape_string($_POST['name']);
         $email = $con->real_escape_string($_POST['email']);
