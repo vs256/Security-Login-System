@@ -12,4 +12,3 @@ run
 cd Security-Design-Website
 sudo chmod +x installation.sh
 sudo ./installation.sh
-
