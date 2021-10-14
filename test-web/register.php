@@ -18,7 +18,14 @@
         {
             $hash = password_hash($password, PASSWORD_BCRYPT);
             $con->query("INSERT INTO users(name,email,password) VALUES ('$name','$email','$password')" );
-            $msg = "You have been registered!";
+            if($con === true)
+            {
+                $msg = "connection is true";
+            }
+            else{
+                $msg = "connection is false, mysql error";
+            }
+           // $msg = "You have been registered!";
 
         }
     }
