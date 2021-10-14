@@ -12,11 +12,7 @@ sudo apt -y update #update cache command
 sudo apt -y  full-upgrade  #update cache command
 
 sudo apt -y install apache2  #command for installation of apache server
-
-sudo apt -y install ufw #install ufw
-sudo ufw limit 22 #allows for port 22 to be open
-sudo ufw limit ssh #double check ssh is allowed
-sudo ufw allow "Apache Full" #allow access to ports 80 and 443 (Full HTTP/S traffic)
+sudo apt -y install mysql-server
 
 # Make sure that NOBODY can access the server without a password
 mysql -e "UPDATE mysql.user SET Password = PASSWORD('compsecurity') WHERE User = 'root'"
