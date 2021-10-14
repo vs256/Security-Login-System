@@ -1,12 +1,9 @@
 
-if [ $# -eq 0 ]
-then
-    echo "Error: no arguments given"
-    echo "Expected $0 <hostname>"
-    exit
-else
-    HOSTNAME=$1
-fi
+ # Check if running as root  
+ if [ "$(id -u)" != "0" ]; then  
+   echo "This script must be run as root" 1>&2  
+   exit 1  
+ fi  
 
 sudo apt -y update #update cache command
 sudo apt -y  full-upgrade  #update cache command
