@@ -3,7 +3,7 @@
 
     
     if(isset($_POST['submit'])){
-        $con = new mysqli(host: 'ec2-18-118-131-190.us-east-2.compute.amazonaws.com', username: 'root', password: 'compsecurity', dbname: 'passwordHashing');
+        $con = new mysqli(host: 'localhost', username: 'root', password: 'compsecurity', dbname: 'passwordHashing');
 
         $name = $con->real_escape_string($_POST['name']);
         $email = $con->real_escape_string($_POST['email']);
