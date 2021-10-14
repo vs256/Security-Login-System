@@ -1,35 +1,40 @@
- 
- # Ask value for mysql root password   
- read -p 'db_root_password [secretpasswd]: ' db_root_password  
- echo  
-   
- # Update system  
- sudo apt-get update -y  
-   
- ## Install APache  
- sudo apt-get install apache2 apache2-doc apache2-mpm-prefork apache2-utils libexpat1 ssl-cert -y  
-   
- ## Install PHP  
- apt-get install php libapache2-mod-php php-mysql -y  
-   
- # Install MySQL database server  
- export DEBIAN_FRONTEND="noninteractive"  
- debconf-set-selections <<< "mysql-server mysql-server/root_password password $db_root_password"  
- debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $db_root_password"  
- apt-get install mysql-server -y  
-   
- # Enabling Mod Rewrite  
- sudo a2enmod rewrite  
- sudo php5enmod mcrypt  
-   
- ## Install PhpMyAdmin  
- sudo apt-get install phpmyadmin -y  
-   
- ## Configure PhpMyAdmin  
- echo 'Include /etc/phpmyadmin/apache.conf' >> /etc/apache2/apache2.conf  
-   
- # Set Permissions  
- sudo chown -R www-data:www-data /var/www  
-   
- # Restart Apache  
- sudo service apache2 restart  
+
+if [ $# -eq 0 ]
+then
+    echo "Error: no arguments given"
+    echo "Expected $0 <hostname>"
+    exit
+else
+    HOSTNAME=$1
+fi
+
+sudo apt -y update #update cache command
+sudo apt -y  full-upgrade  #update cache command
+
+sudo apt -y install apache2  #command for installation of apache server
+
+sudo apt -y install ufw #install ufw
+sudo ufw limit 22 #allows for port 22 to be open
+sudo ufw limit ssh #double check ssh is allowed
+sudo ufw allow "Apache Full" #allow access to ports 80 and 443 (Full HTTP/S traffic)
+
+# Make sure that NOBODY can access the server without a password
+mysql -e "UPDATE mysql.user SET Password = PASSWORD('compsecurity') WHERE User = 'root'"
+# Kill the anonymous users
+mysql -e "DROP USER ''@'localhost'"
+# Because our hostname varies we'll use some Bash magic here.
+mysql -e "DROP USER ''@'$(hostname)'"
+# Kill off the demo database
+mysql -e "DROP DATABASE test"
+# Make our changes take effect
+mysql -e "FLUSH PRIVILEGES"
+# Any subsequent tries to run queries this way will get access denied because lack of usr/pwd param
+
+sudo apt -y install php libapache2-mod-php php-mysql #installs PHP
+#sudo nano /etc/apache2/mods-enabled/dir.conf #change the index.php path for apache (prefer .php files)
+sudo systemctl restart apache2 #restart server to save changes
+
+
+sudo apache2ctl configtest #test the config file for errors
+sudo systemctl restart apache2 #restart server to save changes
+
