@@ -1,7 +1,6 @@
 <?php
     $msg = "";
 
-    echo phpinfo();
     if(isset($_POST['submit'])){
         $con = new mysqli('localhost', 'root', 'computersecurity', 'passwordHashing');
 
@@ -17,9 +16,9 @@
         }
         else
         {
-            //$hash = password_hash($password, algo: PASSWORD_BCRYPT);
-            //$con->query(query: "INSERT INTO users(name,email,password) VALUES ('$name','$email','$hash')");
-            //$msg = "You have been registered!";
+            $hash = password_hash($password, PASSWORD_BCRYPT);
+            $con->query(query: "INSERT INTO users(name,email,password) VALUES ('$name','$email','$hash')");
+            $msg = "You have been registered!";
 
         }
     }
