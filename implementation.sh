@@ -4,8 +4,8 @@ sudo ufw allow "Apache Full" #full HTTP/s traffic access on ports 80, 443
 
 #setup mysql server
 sudo mysql -e "CREATE DATABASE passwordHashing;"
-sudo mysql -e "USE passwordHashing;"
-sudo mysql -e "create table users(
+sudo mysql -e "USE passwordHashing;
+create table users(
    id INT NOT NULL AUTO_INCREMENT,
    name VARCHAR(50) NOT NULL,
    email VARCHAR(50) NOT NULL,
