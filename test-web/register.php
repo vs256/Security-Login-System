@@ -11,7 +11,17 @@
         $cPassword = $con->real_escape_string($_POST['cPassword']);
         
 
-        
+        if ($password != $cPassword)
+        {
+            $msg = "Please Check Your Passwords!";
+        }
+        else
+        {
+            $hash = password_hash($password, algo: PASSWORD_BCRYPT);
+            $con->query(query: "INSERT INTO users(name,email,password) VALUES ('$name','$email','$hash')");
+            $msg = "You have been registered!";
+
+        }
     }
 ?>
 
