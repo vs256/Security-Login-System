@@ -3,6 +3,8 @@
 
     
     if(isset($_POST['submit'])){
+        $con = new mysqli('localhost', 'root', 'computersecurity', 'passwordHashing');
+
         
     }
 ?>
