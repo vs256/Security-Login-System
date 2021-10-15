@@ -1,8 +1,20 @@
 <?php
     $msg = "";
+    
+    /* Attempt MySQL server connection. Assuming you are running MySQL
+server with default setting (user 'root' with no password) */
+$link = mysqli_connect("localhost", "root", "");
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+ 
+// Print host information
+echo "Connect Successfully. Host info: " . mysqli_get_host_info($link);
 
     if(isset($_POST['submit'])){
-        $con = mysqli_connect('127.0.0.1', 'root', '');
+        $con = new mysqli('127.0.0.1', 'root', '');
 
         $name = $con->real_escape_string($_POST['name']);
         $email = $con->real_escape_string($_POST['email']);
