@@ -30,15 +30,9 @@ echo "Connect Successfully. Host info: " . mysqli_get_host_info($link);
         {
             
             $hash = password_hash($password, PASSWORD_BCRYPT);
-            $link->query("INSERT INTO users(name,email,password) VALUES ('$name','$email','$password')" );
-            if($con === true)
-            {
-                $msg = "connection is true";
-            }
-            else{
-                $msg = "connection is false, mysql error";
-            }
-           // $msg = "You have been registered!";
+            $link->query("INSERT INTO users(name,email,password) VALUES ('$name','$email','$hash')" );
+            
+            $msg = "You have been registered!";
 
         }
     }
