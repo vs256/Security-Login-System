@@ -1,9 +1,9 @@
 <?php
     $msg = "";
-    
+
     /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "");
+$link = mysqli_connect("localhost", "test", "computersecurity");
  
 // Check connection
 if($link === false){
