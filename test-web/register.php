@@ -28,8 +28,9 @@ echo "Connect Successfully. Host info: " . mysqli_get_host_info($link);
         }
         else
         {
+            
             $hash = password_hash($password, PASSWORD_BCRYPT);
-            $con->query("INSERT INTO users(name,email,password) VALUES ('$name','$email','$password')" );
+            $link->query("INSERT INTO users(name,email,password) VALUES ('$name','$email','$password')" );
             if($con === true)
             {
                 $msg = "connection is true";
