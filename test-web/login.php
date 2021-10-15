@@ -16,24 +16,24 @@ echo "Connect Successfully. Host info: " . mysqli_get_host_info($link);
     if(isset($_POST['submit'])){
         $con = new mysqli("localhost", "test", "computersecurity", "passwordHashing");
 
-        $name = $con->real_escape_string($_POST['name']);
         $email = $con->real_escape_string($_POST['email']);
         $password = $con->real_escape_string($_POST['password']);
-        $cPassword = $con->real_escape_string($_POST['cPassword']);
-        
-
-        if ($password != $cPassword)
+       
+        $sql = $con->query("SELECT id, password FROM users WHERE email='$email'");
+        if($sql->num_rows > 0)
         {
-            $msg = "Please Check Your Passwords!";
+            $data = $sql->fetch_array();
+            if (password_verify($password, $data['password']))
+            {
+                $msg = "You have been logged IN!";
+            }
+            else{
+                
+            $msg = "Please check your inputs!";
+            }
         }
-        else
-        {
-            
-            $hash = password_hash($password, PASSWORD_BCRYPT);
-            $con->query("INSERT INTO users(name,email,password) VALUES ('$name','$email','$hash')" );
-            
-            $msg = "You have been registered!";
-
+        else {
+            $msg = "Please check your inputs!";
         }
     }
 ?>
@@ -44,7 +44,7 @@ echo "Connect Successfully. Host info: " . mysqli_get_host_info($link);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> - Register</title>
+    <title> - Log in</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
@@ -54,12 +54,10 @@ echo "Connect Successfully. Host info: " . mysqli_get_host_info($link);
 <?php if ($msg != "") echo $msg . "<br><br>"; ?>
             <img src="images/logo.png"><br><br>
 
-            <form method="post" action="register.php">
-                <input class="form-control" minlength="3" name = "name" placeholder="Name..."><br>
+            <form method="post" action="login.php">
                 <input class="form-control" name = "email" type="email" placeholder="Email..."><br>
                 <input class="form-control" minlength="5" name = "password" type="password" placeholder="Password..."><br>
-                <input class="form-control" minlength="5" name = "cPassword" type="password" placeholder="Confirm Password..."><br>
-                <input class="btn btn-primary" name = "submit" type="submit" placeholder="Register..."><br>
+                <input class="btn btn-primary" name = "submit" type="submit" placeholder="Login..."><br>
             </form>
 
         </div>
