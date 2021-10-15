@@ -8,11 +8,13 @@
 sudo apt -y update #Update the packages
 sudo apt -y  full-upgrade  #Do a full upgrade for ubuntu
 
+
 sudo apt -y install apache2  #Install apache2
 
 
 #Setup the mysql server
 sudo apt -y install mysql-server #Install mysql Server
+
 # Make sure that NOBODY can access the server without a password
 sudo mysql -e "UPDATE mysql.user SET Password = PASSWORD('compsecurity') WHERE user = 'root'"
 # Kill the anonymous users

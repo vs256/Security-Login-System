@@ -44,24 +44,34 @@ echo "Connect Successfully. Host info: " . mysqli_get_host_info($link);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> - Log in</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="./clothingBusiness.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container" style="margin-top: 100px;">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-md-offset-3" align="center">
-<?php if ($msg != "") echo $msg . "<br><br>"; ?>
-            <img src="images/logo.png"><br><br>
-
-            <form method="post" action="login.php">
-                <input class="form-control" name = "email" type="email" placeholder="Email..."><br>
-                <input class="form-control" minlength="5" name = "password" type="password" placeholder="Password..."><br>
-                <input class="btn btn-primary" name = "submit" type="submit" placeholder="Login..."><br>
-            </form>
-
+    <div class="container">
+        <div class="background">
+            <div class="inputBox">
+                <a href="./clothingBusiness.html">
+                    <img class="thread" src="./images/LoginAvatar.png" alt="Thread and Needle" >
+                </a>
+                <h1>
+                    Login
+                </h1>
+                    <form method="post" action="clothingBusiness.php">
+                        <p>Email</p>
+                        <input type="email" name= "email" placeholder="Enter Username or Email">
+                        <p>Password</p>
+                        <input type="password" name="password" placeholder="Enter Password">
+                        <input type="submit" name="submit" placeholder="Login">
+                        <br>
+                        <a href="./clothingBusinessForgot.html"> Forgot Password?</a>
+                        <br>
+                        <a href="./clothingNewUser.html">New User? Create Account Here</a>
+                    </form>
+            </div>
         </div>
+        
     </div>
-</div>
 </body>
 </html>
