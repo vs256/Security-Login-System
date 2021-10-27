@@ -19,8 +19,8 @@ sudo ufw allow "Apache Full" #full HTTP/s traffic access on ports 80, 443
 sudo ufw --force enable #make sure ufw is enabled without prompting y/n
 
 #setup mysql server
-sudo mysql -e "CREATE DATABASE authentication-db;"
-sudo mysql -e "USE authentication-db;
+sudo mysql -e "CREATE DATABASE authentication;"
+sudo mysql -e "USE authentication;
 create table users(
    id INT NOT NULL AUTO_INCREMENT,
    name VARCHAR(50) NOT NULL,
