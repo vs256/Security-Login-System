@@ -7,6 +7,7 @@ Step 2:
 run 
 ```
 git clone https://github.com/vs256/Security-Design-Website.git #create a git repo
+
 ```
 Step 3:
 run
@@ -18,4 +19,5 @@ sudo chmod +x implementation.sh #grant access to implementation script
 
 sudo ./installation.sh #run the installation script
 sudo ./implementation.sh #run the implementation script
+
 ```
