@@ -10,7 +10,7 @@ sudo mysql -e "DROP DATABASE test"
 sudo mysql -e "FLUSH PRIVILEGES"
 # Any subsequent tries to run queries this way will get access denied because lack of usr/pwd param
 
-sudo mysql -e "CREATE USER 'admin'@'localhost' IDENTIFIED BY '' " #creates new user called admin
+sudo mysql -e "CREATE USER 'admin'@'localhost' IDENTIFIED BY 'computersecurity' " #creates new user called admin
 sudo mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' " #grants all privileges to admin@localhost
 
 sudo apt -y install ufw #install ufw
