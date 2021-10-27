@@ -14,7 +14,7 @@ if($link === false){
 echo "Connect Successfully. Host info: " . mysqli_get_host_info($link);
 
     if(isset($_POST['submit'])){
-        $con = new mysqli("localhost", "admin", "computersecurity", "passwordHashing");
+        $con = new mysqli("localhost", "admin", "computersecurity", "authentication-db");
 
         $name = $con->real_escape_string($_POST['name']);
         $email = $con->real_escape_string($_POST['email']);
