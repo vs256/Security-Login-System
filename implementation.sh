@@ -1,3 +1,18 @@
+# Make sure that NOBODY can access the server without a password
+sudo mysql -e "UPDATE mysql.user SET Password = PASSWORD('compsecurity') WHERE user = 'root'"
+# Kill the anonymous users
+sudo mysql -e "DROP USER ''@'localhost'"
+# Because our hostname varies we'll use some Bash magic here.
+sudo mysql -e "DROP USER ''@'$(hostname)'"
+# Kill off the demo database
+sudo mysql -e "DROP DATABASE test"
+# Make our changes take effect
+sudo mysql -e "FLUSH PRIVILEGES"
+# Any subsequent tries to run queries this way will get access denied because lack of usr/pwd param
+
+sudo mysql -e "CREATE USER 'admin'@'localhost' IDENTIFIED BY '' " #creates new user called admin
+sudo mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' " #grants all privileges to admin@localhost
+
 sudo apt -y install ufw #install ufw
 sudo ufw allow "OpenSSH" #allows port 22 access for openSSH
 sudo ufw allow "Apache Full" #full HTTP/s traffic access on ports 80, 443
