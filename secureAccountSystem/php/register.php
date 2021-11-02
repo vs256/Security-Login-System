@@ -22,8 +22,6 @@
 
 
 	if(count($errors) === 0) {
-		if(isset($_POST['csrf_token']) && validateToken($_POST['csrf_token'])) {
-			//Connect to database
 			$C = connect();
 			if($C) {
 				//Check if user with same email already exists
@@ -33,7 +31,7 @@
 					$hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 					$id = sqlInsert($C, 'INSERT INTO users VALUES (NULL, ?, ?, ?, 0)', 'sss', $_POST['name'], $_POST['email'], $hash);
 					if($id !== -1) {
-						$err = sendValidationEmail($_POST['email']);
+						//$err = sendValidationEmail($_POST['email']);
 						if($err === 0) {
 							$errors[] = 0;
 						}
@@ -61,7 +59,6 @@
 			//Invalid CSRF Token
 			$errors[] = 9;
 		}
-	}
-
+	
 
 	echo json_encode($errors);
