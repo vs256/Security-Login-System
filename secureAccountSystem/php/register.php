@@ -1,5 +1,5 @@
 <?php
-	require_once 'sendValidationEmail.php';
+	require_once 'utils.php';
 	$errors = [];
 
 
