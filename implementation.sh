@@ -26,7 +26,28 @@ create table users(
    name VARCHAR(50) NOT NULL,
    email VARCHAR(50) NOT NULL,
    password VARCHAR(255) NOT NULL,
-   verified INT NOT NULL,
-   PRIMARY KEY ( id )
+   verified INT NOT NULL DEFAULT '0',
+   PRIMARY KEY ( id ),
+   UNIQUE KEY `id` (`id`)
+);"
+sudo mysql -e "USE authentication;
+create table requests(
+   id INT NOT NULL AUTO_INCREMENT,
+   user INT DEFAULT NULL,
+   hash VARCHAR(255) DEFAULT NULL,
+   timestamp INT DEFAULT NULL,
+   type INT DEFAULT NULL,
+   PRIMARY KEY ( id ),
+   UNIQUE KEY `id` (`id`)
+);"
+
+sudo mysql -e "USE authentication;
+CREATE TABLE `loginattempts` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user` INT DEFAULT NULL,
+  `ip` varchar(255) DEFAULT NULL,
+  `timestamp` INT DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
 );"
 

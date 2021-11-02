@@ -1,6 +1,13 @@
 <?php
     require_once 'config.php';
+	
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
 
+	require_once 'PHPMailer-master/src/Exception.php';
+	require_once 'PHPMailer-master/src/PHPMailer.php';
+	require_once 'PHPMailer-master/src/SMTP.php';
+	
 
 	function connect() {
 		$C = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
@@ -39,6 +46,20 @@
 		return -1;
 	}
 
+	function sqlUpdate($C, $query, $format = false, ...$vars) {
+		$stmt = $C->prepare($query);
+		if($format) {
+			$stmt->bind_param($format, ...$vars);
+		}
+		if($stmt->execute()) {
+			$stmt->close();
+			return true;
+		}
+		$stmt->close();
+		return false;
+	}
+
+
 	
 	function createToken() {
 		$seed = urlSafeEncode(random_bytes(8));
@@ -63,5 +84,35 @@
 	}
 	function urlSafeDecode($m) {
 		return base64_decode(strtr($m, '-_', '+/'));
+	}
+
+	
+	function sendEmail($to, $toName, $subj, $msg) {
+		$mail = new PHPMailer(true);
+		try {
+	    //Server settings
+	    $mail->isSMTP();
+	    $mail->Host       = SMTP_HOST;
+	    $mail->SMTPAuth   = true;
+	    $mail->Username   = SMTP_USERNAME;
+	    $mail->Password   = SMTP_PASSWORD;
+	    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+	    $mail->Port       = SMTP_PORT;
+
+	    //Recipients
+	    $mail->setFrom(SMTP_FROM, SMTP_FROM_NAME);
+	    $mail->addAddress($to, $toName);
+
+	    // Content
+	    $mail->isHTML(true);
+	    $mail->Subject = $subj;
+	    $mail->Body    = $msg;
+
+	    $mail->send();
+	    return true;
+		} 
+		catch(Exception $e) {
+			return false;
+		}
 	}
 

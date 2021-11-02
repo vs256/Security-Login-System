@@ -101,3 +101,45 @@ function register() {
         }, 10);
     });
 }
+
+
+// validateEmail.php
+function sendValidateEmailRequest() {
+	request('php/sendValidationEmail.php', '#validateEmailForm', function(data) {
+		document.getElementById('errs').innerHTML = "";
+		var transition = document.getElementById('errs').style.transition;
+		document.getElementById('errs').style.transition = "none";
+		document.getElementById('errs').style.opacity = 0;
+
+		switch(data) {
+			case '0':
+				document.getElementById('errs').innerHTML += '<div>Email Sent... Check your email and click the link in the email to validate your email.</div>';
+				document.getElementById('validateEmailForm').reset();
+				break;
+			case '1':
+				document.getElementById('errs').innerHTML += '<div class="err">Failed to send email. Please try again later.</div>';
+				break;
+			case '2':
+				document.getElementById('errs').innerHTML += '<div class="err">Failed to insert request into database. Please try again later.</div>';
+				break;
+			case '3':
+				document.getElementById('errs').innerHTML += '<div class="err">You have exceeded your number of allowed validation requests per day</div>';
+				break;
+			case '4':
+				document.getElementById('errs').innerHTML += '<div class="err">The user with this email is already validated</div>';
+				break;
+			case '5':
+				document.getElementById('errs').innerHTML += '<div class="err">A user with this email does not exist</div>';
+				break;
+			case '6':
+				document.getElementById('errs').innerHTML += '<div class="err">Failed to connect to database. Please try again later.</div>';
+				break;
+			default:
+				document.getElementById('errs').innerHTML += '<div class="err">An unknown error occurred. Please try again later.</div>';
+		}
+		setTimeout(function() {
+			document.getElementById('errs').style.transition = transition;
+			document.getElementById('errs').style.opacity = 1;
+		}, 10);
+	});
+}

@@ -7,12 +7,12 @@
 	define('DB_PASSWORD', 'computersecurity');
 
 	// Email Credentials
-	define('SMTP_HOST', 'mail.mydomain.com');
+	define('SMTP_HOST', 'smtp.gmail.com');
 	define('SMTP_PORT', 465);
-	define('SMTP_USERNAME', 'name@mydomain.com');
-	define('SMTP_PASSWORD', '<my password>');
-	define('SMTP_FROM', 'noreply@mydomain.com');
-	define('SMTP_FROM_NAME', '<your name>');
+	define('SMTP_USERNAME', 'surfingturtlelife@gmail.com');
+	define('SMTP_PASSWORD', 'computersecurity');
+	define('SMTP_FROM', 'surfingturtlelife@gmail.com');
+	define('SMTP_FROM_NAME', 'Computer Security');
 
 	// Global Variables
 	define('MAX_LOGIN_ATTEMPTS_PER_HOUR', 5);
