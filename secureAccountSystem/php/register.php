@@ -22,6 +22,7 @@
 
 
 	if(count($errors) === 0) {
+		if(isset($_POST['csrf_token']) && validateToken($_POST['csrf_token'])) {
 			$C = connect();
 			if($C) {
 				//Check if user with same email already exists
@@ -56,9 +57,11 @@
 			}
 		}
 		else {
-			//Invalid CSRF Token
+			//Invalid csrf token sent
 			$errors[] = 9;
 		}
+	}
+		
 	
 
 	echo json_encode($errors);

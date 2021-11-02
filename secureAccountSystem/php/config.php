@@ -19,7 +19,7 @@
 	define('MAX_EMAIL_VERIFICATION_REQUESTS_PER_DAY', 3);
 	define('MAX_PASSWORD_RESET_REQUESTS_PER_DAY', 3);
 	define('PASSWORD_RESET_REQUEST_EXPIRY_TIME', 60*60);
-	define('CSRF_TOKEN_SECRET', '<change me to something random>');
+	define('CSRF_TOKEN_SECRET', 'somethingRandom');
 	define('VALIDATE_EMAIL_ENDPOINT', 'http://localhost/YouTube/SecureAccountSystem/validate'); #Do not include trailing /
 	define('RESET_PASSWORD_ENDPOINT', 'http://localhost/Youtube/SecureAccountSystem/resetpassword'); #Do not include trailing /
 
