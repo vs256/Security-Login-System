@@ -2,9 +2,9 @@
 
 	// Database Credentials
 	define('DB_HOST', 'localhost');
-	define('DB_DATABASE', '<your database name>');
-	define('DB_USERNAME', '<your database username>');
-	define('DB_PASSWORD', '<your database password>');
+	define('DB_DATABASE', 'authentication');
+	define('DB_USERNAME', 'admin');
+	define('DB_PASSWORD', 'computersecurity');
 
 	// Email Credentials
 	define('SMTP_HOST', 'mail.mydomain.com');
