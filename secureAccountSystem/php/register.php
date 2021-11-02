@@ -33,7 +33,7 @@
 					$hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 					$id = sqlInsert($C, 'INSERT INTO users VALUES (NULL, ?, ?, ?, 0)', 'sss', $_POST['name'], $_POST['email'], $hash);
 					if($id !== -1) {
-						$err = sendValidationEmail($_POST['email']);
+						//$err = sendValidationEmail($_POST['email']);
 						if($err === 0) {
 							$errors[] = 0;
 						}
