@@ -20,8 +20,8 @@
 	define('MAX_PASSWORD_RESET_REQUESTS_PER_DAY', 3);
 	define('PASSWORD_RESET_REQUEST_EXPIRY_TIME', 60*60);
 	define('CSRF_TOKEN_SECRET', 'somethingRandom');
-	define('VALIDATE_EMAIL_ENDPOINT', 'http://localhost/YouTube/SecureAccountSystem/validate'); #Do not include trailing /
-	define('RESET_PASSWORD_ENDPOINT', 'http://localhost/Youtube/SecureAccountSystem/resetpassword'); #Do not include trailing /
+	define('VALIDATE_EMAIL_ENDPOINT', 'http://18.118.18.172/validate'); #Do not include trailing /
+	define('RESET_PASSWORD_ENDPOINT', 'http://18.118.18.172/resetpassword'); #Do not include trailing /
 
 	// Code we want to run on every page/script
 	date_default_timezone_set('UTC'); 
