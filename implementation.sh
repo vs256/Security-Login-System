@@ -18,6 +18,11 @@ sudo ufw allow "OpenSSH" #allows port 22 access for openSSH
 sudo ufw allow "Apache Full" #full HTTP/s traffic access on ports 80, 443
 sudo ufw --force enable #make sure ufw is enabled without prompting y/n
 
+sudo a2enmod rewrite #enable rewrite rules for redirects
+sudo systemctl restart apache2 #restart apache2 server
+
+sudo mv ~/Security-Design-Website/000-default.conf /etc/apache2/sites-available/
+
 #setup mysql server
 sudo mysql -e "CREATE DATABASE authentication;"
 sudo mysql -e "USE authentication;
@@ -27,9 +32,9 @@ create table users(
    email VARCHAR(50) NOT NULL,
    password VARCHAR(255) NOT NULL,
    verified INT NOT NULL DEFAULT '0',
-   PRIMARY KEY ( id ),
-   UNIQUE KEY `id` (`id`)
+   PRIMARY KEY ( id )
 );"
+
 sudo mysql -e "USE authentication;
 create table requests(
    id INT NOT NULL AUTO_INCREMENT,
@@ -37,8 +42,7 @@ create table requests(
    hash VARCHAR(255) DEFAULT NULL,
    timestamp INT DEFAULT NULL,
    type INT DEFAULT NULL,
-   PRIMARY KEY ( id ),
-   UNIQUE KEY `id` (`id`)
+   PRIMARY KEY ( id )
 );"
 
 sudo mysql -e "USE authentication;
@@ -47,7 +51,6 @@ CREATE TABLE `loginattempts` (
   `user` INT DEFAULT NULL,
   `ip` varchar(255) DEFAULT NULL,
   `timestamp` INT DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
+  PRIMARY KEY (`id`)
 );"
 
