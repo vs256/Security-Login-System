@@ -24,6 +24,7 @@ function request(url, data, callback) {
     xhr.send(formdata);
 }
 
+
 // register.php
 function register() {
     request('php/register.php', '#registerForm', function(data) {

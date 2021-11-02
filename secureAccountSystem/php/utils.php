@@ -39,6 +39,7 @@
 		return -1;
 	}
 
+	
 	function createToken() {
 		$seed = urlSafeEncode(random_bytes(8));
 		$t = time();
@@ -63,5 +64,4 @@
 	function urlSafeDecode($m) {
 		return base64_decode(strtr($m, '-_', '+/'));
 	}
-
 
