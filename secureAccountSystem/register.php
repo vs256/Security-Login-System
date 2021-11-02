@@ -8,7 +8,7 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Register - Secure Site</title>
-	<link rel="stylesheet" href=<?php echo dirname($_SERVER['PHP_SELF']) . '/style.css' ?>" />
+	<link rel="stylesheet" href=<?php echo dirname($_SERVER['SERVER_NAME']) . '/style.css' ?>" />
 </head>
 <body>
 	
@@ -44,6 +44,6 @@
 	</div>
 
 
-	<script src="<?php echo dirname($_SERVER['PHP_SELF']) . '/script.js' ?>"></script>
+	<script src="<?php echo dirname($_SERVER['SERVER_NAME']) . '/script.js' ?>"></script>
 </body>
 </html>
