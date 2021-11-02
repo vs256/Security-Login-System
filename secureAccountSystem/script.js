@@ -1,4 +1,4 @@
-//global functions
+// global functions
 function request(url, data, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
@@ -14,9 +14,15 @@ function request(url, data, callback) {
         }
     });
 
-    xhr.send(data ? (data instanceof FormData ? data : new FormData(document.querySelector(data))) : undefined);
-}
+    var formdata = data ? (data instanceof FormData ? data : new FormData(document.querySelector(data))) : new FormData();
 
+    var csrfMetaTag = document.querySelector('meta[name="csrf_token"]');
+    if (csrfMetaTag) {
+        formdata.append('csrf_token', csrfMetaTag.getAttribute('content'));
+    }
+
+    xhr.send(formdata);
+}
 
 // register.php
 function register() {
