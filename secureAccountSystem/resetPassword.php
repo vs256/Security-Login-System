@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="<?php echo dirname($_SERVER['SERVER_NAME']) . '/style.css' ?>" />
 </head>
 <body>
-    
+
 	<?php if(empty($_GET['id']) && empty($_GET['hash'])) { ?>
 		<div class="formWrapper">
 			<form id="resetPasswordForm">
@@ -38,19 +38,7 @@
 			<form id="changePasswordForm">
 				<h1>Change Password</h1>
 				<div id="errs" class="errorcontainer"></div>
-				<div class="inputblock">
-					<label for="password">Password</label>
-					<input id="password" name="password" type="password" autocomplete="email" required placeholder="Enter your new password" onkeydown="if(event.key === 'Enter'){event.preventDefault();changePassword();}"/>
-				</div>
-				<div class="inputblock">
-					<label for="confirm-password">Confirm Password</label>
-					<input id="confirm-password" name="confirm-password" type="password" autocomplete="email" required placeholder="Confirm your password" onkeydown="if(event.key === 'Enter'){event.preventDefault();changePassword();}"/>
-				</div>
-				<input id="id" name="id" type="hidden" value="<?php echo htmlspecialchars($_GET['id']); ?>" />
-				<input id="hash" name="hash" type="hidden" value="<?php echo htmlspecialchars($_GET['hash']); ?>" />
-				<br>
-				<div class="btn" onclick="changePassword();">Change Password</div>
-				<br>
+				
 				<br>
 				<br>
 				<a href="./login">Go back to log in</a>
