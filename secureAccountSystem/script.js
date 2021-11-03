@@ -228,6 +228,7 @@ function passwordResetRequest() {
 		}, 10);
 	});
 }
+
 function changePassword() {
 	request('php/changePassword.php', '#changePasswordForm', function(data) {
 		document.getElementById('errs').innerHTML = "";
