@@ -24,7 +24,6 @@ function request(url, data, callback) {
     xhr.send(formdata);
 }
 
-
 // resetPassword.php
 function passwordResetRequest() {
 	request('php/passwordResetRequest.php', '#resetPasswordForm', function(data) {
