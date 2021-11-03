@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="<?php echo dirname($_SERVER['SERVER_NAME']) . '/style.css' ?>" />
 </head>
 <body>
+    
 	<?php if(empty($_GET['id']) && empty($_GET['hash'])) { ?>
 		<div class="formWrapper">
 			<form id="resetPasswordForm">
