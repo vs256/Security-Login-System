@@ -18,10 +18,6 @@ sudo ufw allow "OpenSSH" #allows port 22 access for openSSH
 sudo ufw allow "Apache Full" #full HTTP/s traffic access on ports 80, 443
 sudo ufw --force enable #make sure ufw is enabled without prompting y/n
 
-sudo a2enmod rewrite #enable rewrite rules for redirects
-sudo systemctl restart apache2 #restart apache2 server
-
-sudo mv ~/Security-Design-Website/000-default.conf /etc/apache2/sites-available/
 
 #setup mysql server
 sudo mysql -e "CREATE DATABASE authentication;"
@@ -46,11 +42,25 @@ create table requests(
 );"
 
 sudo mysql -e "USE authentication;
-CREATE TABLE `loginattempts` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user` INT DEFAULT NULL,
-  `ip` varchar(255) DEFAULT NULL,
-  `timestamp` INT DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE loginattempts (
+  id INT NOT NULL AUTO_INCREMENT,
+  user INT DEFAULT NULL,
+  ip varchar(255) DEFAULT NULL,
+  timestamp INT DEFAULT NULL,
+  PRIMARY KEY ( id )
 );"
+
+
+sudo a2enmod rewrite #enable rewrite rules for redirects
+sudo systemctl restart apache2 #restart apache2 server
+
+sudo mv ~/Security-Design-Website/000-default.conf /etc/apache2/sites-available
+sudo systemctl restart apache2
+
+
+sudo touch /var/www/html/.htaccess
+sudo mv ~/Security-Design-Website/secureAccountSystem/.htaccess /var/www/html
+sudo mv ~/Security-Design-Website/secureAccountSystem/php/* /var/www/html/php
+sudo mv ~/Security-Design-Website/secureAccountSystem/* /var/www/html
+
 
