@@ -14,7 +14,7 @@
 <div class="container">
         <div class="background">
             <div class="inputBox">
-                <a href="./clothingBusiness.html">
+                <a href="./index.php">
                     <img class="thread" src="./php/images/LoginAvatar.png" alt="Thread and Needle" >
                 </a>
                 <h1>
