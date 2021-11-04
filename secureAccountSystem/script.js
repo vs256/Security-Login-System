@@ -86,6 +86,8 @@ function register() {
 					case 0:
 						document.getElementById('errs').innerHTML += '<div>Your account has been created!</div><div>Please validate your email by checking your inbox for a validation link before logging in.</div>';
 						document.getElementById('registerForm').reset();
+						//window.location.href = 'https://newurl.com'
+
 						break;
 					case 1:
 						document.getElementById('errs').innerHTML += '<div class="err">Invalid name entered. (only use letters, spaces, and hyphens)</div>';
