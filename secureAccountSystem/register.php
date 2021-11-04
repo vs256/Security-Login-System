@@ -41,6 +41,8 @@
 				<label for="confirm-password">Confirm Password</label>
 				<input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" placeholder="Confirm your password" onkeydown="if(event.key === 'Enter'){event.preventDefault();register();}" />
 			</div>
+			<div class="g-recaptcha" data-sitekey="6LdoQxMdAAAAAI1iC2QqRB41Hxika4ohpJa3k5p3"></div>
+			<br />
 			<br>
 			<div class="btn" onclick="register();">Sign Up</div>
 			<br>
