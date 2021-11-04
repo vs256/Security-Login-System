@@ -29,6 +29,7 @@ create table users(
    password VARCHAR(255) NOT NULL,
    verified INT NOT NULL DEFAULT '0',
    loginCount INT DEFAULT '0',
+   lastLogin VARCHAR(50) DEFAULT NULL,
    PRIMARY KEY ( id )
 );"
 
