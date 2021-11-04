@@ -24,7 +24,7 @@
 	define('RESET_PASSWORD_ENDPOINT', 'http://18.118.18.172/resetpassword'); #Do not include trailing /
 
 	// Code we want to run on every page/script
-	date_default_timezone_set('UTC'); 
+	date_default_timezone_set('PT'); 
 	error_reporting(0);
 	session_set_cookie_params(['samesite' => 'Strict']);
 	session_start();
