@@ -8,7 +8,7 @@
 	<meta name="csrf_token" content="<?php echo createToken(); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Register - Secure Site</title>
-	<link rel="stylesheet" href=<?php echo dirname($_SERVER['SERVER_NAME']) . '/style.css' ?>" />
+	<link rel="stylesheet" href="<?php echo dirname($_SERVER['SERVER_NAME']) . '/style.css' ?>" />
 </head>
 <body>
 	
@@ -16,7 +16,7 @@
         <div class="background">
             <div class="createBox">
                 <a href="./clothingBusiness.html">
-                    <img class="thread" src="./php/images/loginAvatar.png" alt="Thread and Needle" >
+                    <img class="thread" src="./php/images/LoginAvatar.png" alt="Thread and Needle" >
                 </a>
                 <h1>
                     Create Account
