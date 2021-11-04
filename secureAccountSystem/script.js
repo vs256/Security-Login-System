@@ -240,7 +240,6 @@ function triggerIndicator() {
 	const text = document.querySelector(".text");
 	const showBtn = document.querySelector(".showBtn");
 			
-	const no = -1;
 			const password = document.querySelector(".password");
 	
 			let regExpWeak = /[a-z]/;
