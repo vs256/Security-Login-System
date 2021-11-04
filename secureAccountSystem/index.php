@@ -36,7 +36,7 @@
 		<h1>Secure Site</h1>
 		<div id="errs" class="errorcontainer"></div>
 		<br><br>
-		<h2>Hello <?php echo htmlspecialchars($user['name'], ENT_QUOTES); ?></h2><h3>You have logged in <?php echo htmlspecialchars($user['loginCount'], ENT_QUOTES); ?> times </h3><h4>Last Login Date: <?php echo htmlspecialchars($user['lastLogin'], ENT_QUOTES); ?>  </h4>
+		<h2>Hello <?php echo htmlspecialchars($user['name'], ENT_QUOTES); ?></h2><h3>You have logged in <?php echo htmlspecialchars($user['loginCount'], ENT_QUOTES); ?> times </h3><h4>Last Login Date: <?php echo htmlspecialchars($user['lastLogin'], ENT_QUOTES); ?>  UTC </h4>
 		<br><br>
 		<div class="btn" onclick="logout();">Log Out</div>
 		<br><br>
