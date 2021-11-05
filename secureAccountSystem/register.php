@@ -49,7 +49,7 @@
 			
 
 			<br>
-			<button class="btn" onclick="register();" type="submit">Sign Up</button>
+			<div class="btn" onclick="register();" type="submit">Sign Up</div>
 			</form>
 			
 			<br>
