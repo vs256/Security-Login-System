@@ -22,11 +22,11 @@
 							sqlUpdate($C, 'UPDATE users SET loginCount = loginCount + 1 WHERE id=?', 'i', $user['id']);
                             sqlUpdate($C, 'UPDATE users SET lastLogin = now() WHERE id=?', 'i', $user['id']);
 
-
+							
 							echo 0;
 						}
 						else {
-							$id = sqlInsert($C, 'INSERT INTO loginattempts VALUES (NULL, ?, ?, ?)', 'isi', $user['id'], time(), time());
+							$id = sqlInsert($C, 'INSERT INTO loginattempts VALUES (NULL, ?, ?, ?)', 'sss', $user['id'], $_SERVER['REMOTE_ADDR'], time());
 							if($id !== -1) {
 								echo 1;
 							}
