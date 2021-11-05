@@ -26,8 +26,8 @@
 							echo 0;
 						}
 						else {
-							//$id = sqlInsert($C, 'INSERT INTO loginattempts VALUES (NULL, ?, ?, ?)', 'isi', $user['id'], $_SERVER['REMOTE_ADDR'], time());
-							$id = sqlInsert($C, 'INSERT INTO loginattempts VALUES (NULL, 1,1,1 )');
+							$id = sqlInsert($C, 'INSERT INTO loginattempts VALUES (NULL, ?, ?, ?)', 'isi', $user['id'], $_SERVER['REMOTE_ADDR'], time());
+						
 							if($id !== -1) {
 								echo 1;
 							}
