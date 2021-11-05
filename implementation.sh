@@ -28,6 +28,8 @@ create table users(
    email VARCHAR(50) NOT NULL,
    password VARCHAR(255) NOT NULL,
    verified INT NOT NULL DEFAULT '0',
+   loginCount INT DEFAULT '0',
+   lastLogin VARCHAR(50) DEFAULT NULL,
    PRIMARY KEY ( id )
 );"
 
@@ -63,4 +65,8 @@ sudo mv ~/Security-Design-Website/secureAccountSystem/.htaccess /var/www/html
 sudo mv ~/Security-Design-Website/secureAccountSystem/php/* /var/www/html/php
 sudo mv ~/Security-Design-Website/secureAccountSystem/* /var/www/html
 
+
+sudo htpasswd -c /etc/apache2/.htpasswd company
+echo "security"
+echo "security"
 

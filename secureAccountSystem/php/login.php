@@ -18,6 +18,10 @@
 							$_SESSION['loggedin'] = true;
 							$_SESSION['userID'] = $user['id'];
 							sqlUpdate($C, 'DELETE FROM loginattempts WHERE user=?', 'i', $user['id']);
+
+							sqlUpdate($C, 'UPDATE users SET loginCount = loginCount + 1 WHERE id=?', 'i', $user['id']);
+							sqlUpdate($C, 'UPDATE users SET lastLogin = now() WHERE id=?', 'i', $user['id']);
+
 							echo 0;
 						}
 						else {
