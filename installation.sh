@@ -19,9 +19,8 @@ sudo apt -y install php libapache2-mod-php php-mysql #installs PHP
 sudo systemctl restart apache2 #restart server to save changes
 
 
-sudo apt install snort #install snort for intrusion detection
-
-
 sudo apache2ctl configtest #check for any errors in config file
 sudo systemctl restart apache2 #restart server to save changes
 
+sudo apt -y install snort #install snort for intrusion detection
+#manual intervention needed to ensure snort install correctly to correct IP
