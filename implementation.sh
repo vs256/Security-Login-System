@@ -1,5 +1,5 @@
 # Make sure that NOBODY can access the server without a password
-sudo mysql -e "UPDATE mysql.user SET Password = PASSWORD('compsecurity') WHERE user = root"
+sudo mysql -e "UPDATE mysql.user SET Password=PASSWORD('computersecurity') WHERE User='root';FLUSH PRIVILEGES;"
 # Kill the anonymous users
 sudo mysql -e "DROP USER ''@'localhost'"
 # Because our hostname varies we'll use some Bash magic here.
