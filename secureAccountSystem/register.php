@@ -25,7 +25,9 @@ require_once 'php/utils.php';
                     Create Account
                 </h2>
                 <form>
+					<div id="errs" class="errorcontainer"></div>
                     <label for="name">Name</label>
+
                     <input id="name" name="name" type="text" autocomplete="name" placeholder="Enter Your Name" onkeydown="if(event.key === 'Enter'){event.preventDefault();register();}" />
                     <label for="dob">Date of Birth</label>
                     <input id="dob" name="dob" type="text" autocomplete="bday" placeholder="MM/DD/YYYY" onkeydown="if(event.key === 'Enter'){event.preventDefault();register();}" />
@@ -35,17 +37,7 @@ require_once 'php/utils.php';
                     <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Enter Your Password" onkeydown="if(event.key === 'Enter'){event.preventDefault();register();}" />
                     <label for="confirm-password">Confirm Password</label>
                     <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" placeholder="Confirm Your Password" onkeydown="if(event.key === 'Enter'){event.preventDefault();register();}" />
-                    <!--Select is a drop down menu.-->
-                    <label>Please Pick A Security Question To Answer.</label>
-                    <select name="languages" id="">
-                        <option value="question1">What Street Did You Grow Up On?</option>
-                        <option value="question2">What Was The Name Of Your First Pet?</option>
-                        <option value="question3">What Elementary School Did You Attend?</option>
-                        <option value="question4">What Was The Make And Model Of Your First Car?</option>
-                        <option value="question5">Where Did Your Parents Meet?</option>
-                        <option value="question6">?</option>
-
-                    </select>
+                   
                     <input id="answer" type="text" name="answer" autocapitalize="characters" required placeholder="Enter Your answer" onkeydown="if(event.key === 'Enter'){event.preventDefault();login();}">
                     <!-- <button type="submit"> Submit</button> -->
                     <input type="submit" onclick="register();" name="submit" placeholder="Register">
