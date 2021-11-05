@@ -66,3 +66,7 @@ sudo mv ~/Security-Design-Website/secureAccountSystem/php/* /var/www/html/php
 sudo mv ~/Security-Design-Website/secureAccountSystem/* /var/www/html
 
 
+sudo htpasswd -c /etc/apache2/.htpasswd company
+echo "security"
+echo "security"
+
