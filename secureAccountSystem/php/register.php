@@ -31,7 +31,7 @@
 
 	if(!$captcha || empty($captcha)) {
 		echo 'recaptcha verification failed';
-		$errors[] = 1;
+		//$errors[] = 1;
 		exit;
 	}
 
@@ -44,10 +44,10 @@
 
 	if($responseKeys["success"]) {
 		echo 'captcha verification succesful';
-		$errors[] = 2;
+		//$errors[] = 2;
 	} else {
 		echo 'Hello, robot!';
-		$errors[] = 4;
+		//$errors[] = 4;
 	}
 
 
