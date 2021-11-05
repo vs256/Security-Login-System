@@ -36,6 +36,7 @@ function logout() {
 	});
 }
 
+
 // login.php
 function login() {
 	request('php/login.php', '#loginForm', function(data) {
@@ -68,6 +69,7 @@ function login() {
 		}, 10);
 	});
 }
+
 
 // register.php
 function register() {
