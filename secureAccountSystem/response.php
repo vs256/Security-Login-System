@@ -21,7 +21,7 @@
 				exit;
 			}
 
-			$secretKey = '!YOUR_SECRET_KEY!';
+			$secretKey = '6LdoQxMdAAAAAI1iC2QqRB41Hxika4ohpJa3k5p3';
 			$ip = $_SERVER['REMOTE_ADDR'];
 
 			$url = 'https://www.google.com/recaptcha/api/siteverify?secret='.urlencode($secretKey).'&response='.urlencode($captcha);

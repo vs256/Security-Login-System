@@ -20,6 +20,36 @@
 	}
 
 
+	//captcha stuff
+	foreach ($_POST as $key => $value) {
+		echo 'key: '.$key.' value: '.$value.'<br />';
+	}
+
+	if(isset($_POST['g-recaptcha-response'])) {
+		$captcha = $_POST['g-recaptcha-response'];
+	}
+
+	if(!$captcha || empty($captcha)) {
+		echo 'recaptcha verification failed';
+		$errors[] = 1;
+		exit;
+	}
+
+	$secretKey = '6LdoQxMdAAAAAI1iC2QqRB41Hxika4ohpJa3k5p3';
+	$ip = $_SERVER['REMOTE_ADDR'];
+
+	$url = 'https://www.google.com/recaptcha/api/siteverify?secret='.urlencode($secretKey).'&response='.urlencode($captcha);
+	$response = file_get_contents($url);
+	$responseKeys = json_decode($response, true);
+
+	if($responseKeys["success"]) {
+		echo 'captcha verification succesful';
+		$errors[] = 2;
+	} else {
+		echo 'Hello, robot!';
+		$errors[] = 4;
+	}
+
 
 	if(count($errors) === 0) {
 		if(isset($_POST['csrf_token']) && validateToken($_POST['csrf_token'])) {
