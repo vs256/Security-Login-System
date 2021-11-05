@@ -46,11 +46,11 @@
 			<form action="response.php" method="post">
 			<br />
 			<div class="g-recaptcha" data-sitekey="6LdoQxMdAAAAAI1iC2QqRB41Hxika4ohpJa3k5p3"></div>
-			
+			</form>
 
 			<br>
 			<div class="btn" onclick="register();" type="submit">Sign Up</div>
-			</form>
+			
 			
 			<br>
 			<a href="./login">Already have an account? Log In</a>
