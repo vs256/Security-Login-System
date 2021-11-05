@@ -28,12 +28,12 @@
 	<meta charset="UTF-8">
 	<meta name="csrf_token" content="<?php echo createToken(); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Secure Site</title>
+	<title>Computer Security</title>
 	<link rel="stylesheet" href="<?php echo dirname($_SERVER['SERVER_NAME']) . '/style.css' ?>" />
 </head>
 <body>
 	<div style="text-align: center;">
-		<h1>Secure Site</h1>
+		<h1>Computer Security Site</h1>
 		<div id="errs" class="errorcontainer"></div>
 		<br><br>
 		<h2>Hello <?php echo htmlspecialchars($user['name'], ENT_QUOTES); ?></h2><h3>You have logged in <?php echo htmlspecialchars($user['loginCount'], ENT_QUOTES); ?> times </h3><h4>Last Login Date: <?php echo htmlspecialchars($user['lastLogin'], ENT_QUOTES); ?>  UTC </h4>
