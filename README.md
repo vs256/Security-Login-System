@@ -6,7 +6,7 @@ Make a fresh ubuntu 20.04 os
 Step 2:
 run 
 ```
-git clone https://github.com/vs256/Security-Design-Website.git #create a git repo
+git clone https://github.com/vs256/Security-Login-System.git #create a git repo
 cd Security-Design-Website #navigate to Security-Design-Website directory
 ```
 Step 3:
